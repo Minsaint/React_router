@@ -1,0 +1,51 @@
+@space : 20px;
+@liWidth : (1140- 20 * 3) / 4;
+.show {
+    .container {
+        overflow: hidden;
+        padding-top: 40px;
+        ul {
+            overflow: hidden;
+            width: 100% + @space;
+            li {
+                float: left;
+                width: 270px;
+                height: 180px;
+                margin-right: @space;
+                margin-bottom: @space;
+                a{
+                    position: relative;
+                    display: block;
+                    height: 100%;
+                    color: #fff;
+                    .content {
+                        position: absolute;
+                        top: 50%;
+                        left:50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 24px;
+                        padding: 10px;
+                        width: 80%;
+                        text-align: center;
+                    }
+                    .cover {
+                        position:absolute;
+                        top:0;
+                        right:0;
+                        bottom:0;
+                        left: 0;
+                        background: rgba(0, 0, 0, .5);
+                        padding: 20px;
+                        opacity: 0;
+                        transition: all .3s ease;
+                    }
+                    &:hover {
+                        .cover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
