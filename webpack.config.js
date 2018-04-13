@@ -1,4 +1,4 @@
-
+var Uglify = require('webpack').optimize.UglifyJsPlugin;
 module.exports = {
     entry: './modules/bootstrap.jsx',
     output: {
@@ -22,8 +22,11 @@ module.exports = {
             // url加载机
             {
                 test: /\.(jpg|png|gif)$/,
-                loader: 'url-loader?limit=5000'
+                loader: 'url-loader?limit=50000'
             }
         ]
-    }
+    },
+    plugins: [
+        new Uglify()
+    ]
 }
