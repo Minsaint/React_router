@@ -1,5 +1,4 @@
 
-var uglifyjs = require('webpack').optimize.UglifyJsPlugin;
 module.exports = {
     entry: './modules/bootstrap.jsx',
     output: {
@@ -7,6 +6,7 @@ module.exports = {
     },
     module: {
         loaders: [
+            // es6, jsx加载机
             {
                 test: /\.jsx$/,
                 loader: 'babel-loader',
@@ -14,17 +14,16 @@ module.exports = {
                     presets: ['react', 'es2015']
                 }
             },
+            // less加载机
             {
                 test: /\.less$/,
                 loader: 'style-loader!css-loader!less-loader'
             },
+            // url加载机
             {
-                test:/\.(jpg|png)$/,
+                test: /\.(jpg|png|gif)$/,
                 loader: 'url-loader?limit=5000'
             }
         ]
-    },
-    plugins: [
-        new uglifyjs()
-    ]
+    }
 }
